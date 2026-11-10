@@ -202,6 +202,24 @@
 .events-page .page-inner{padding-top:calc(var(--cardw) * .07);padding-bottom:calc(var(--cardw) * .15)}
 .venue-page .page-inner{padding-top:calc(var(--cardw) * .08);padding-bottom:calc(var(--cardw) * .11)}
 @keyframes pageRise{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
+/* Spacing polish */
+.amp{display:inline-block;margin:0 .14em 0 .06em}
+p,h1,h2,h3,.envelope-heading,.footer-text{text-wrap:balance}
+.copy{text-wrap:pretty}
+.cover h1.names{margin:clamp(4px,1vh,10px) 0 clamp(2px,.6vh,6px)}
+.cover .eyebrow+.eyebrow{margin-top:2px}
+.cover .subline{margin-top:clamp(2px,.5vh,6px)}
+.event-card{padding-left:clamp(26px,8%,34px);padding-right:clamp(26px,8%,34px)}
+.event-card::before,.event-card::after{top:8px}
+.event-card h3{margin:clamp(1px,.3vh,3px) 0}
+.venue-block{gap:clamp(3px,.6vh,6px)}
+.venue-block .venue-city{font-size:clamp(11px,1.5vh,15px);letter-spacing:.18em;margin-top:-2px}
+.events-page .footer-text{max-width:90%;line-height:1.5}
+.nw{white-space:nowrap}
+.envelope-heading{white-space:nowrap;font-size:min(clamp(47px,8vh,77px),16vw)}
+.venue-page .final-gratitude{max-width:88%}
+/* On phones the card fills the width: tuck the music button below the gold corner ornament */
+@media (max-aspect-ratio:5628/10000){.music{width:36px;height:36px;font-size:17px;right:calc(3.5vw + 10px);top:calc(env(safe-area-inset-top,0px) + 2vh + clamp(25px,5vh,45px) + 4px)}}
 </style></head><body><div id="app"><button class="music" id="musicBtn" title="Toggle music" aria-label="Toggle music">♫</button>
 
 <section class="page envelope-page active" id="envelopePage" aria-label="Open your wedding invitation envelope">
@@ -230,25 +248,25 @@
 <g transform="translate(90 139)"><circle r="12" fill="#d7b5d7"/><circle cx="-5" cy="-3" r="7" fill="#f6daea"/><circle cx="5" cy="-3" r="7" fill="#dab6df"/><circle cx="0" cy="5" r="7" fill="#bd8fc1"/><circle r="4" fill="#f6dfab"/></g>
 <g fill="#f5e5b3"><circle cx="40" cy="22" r="3.5"/><circle cx="53" cy="19" r="2.5"/><circle cx="87" cy="107" r="3"/><circle cx="12" cy="61" r="3"/></g>
 </svg>
-      <div class="letter"><div class="letter-kicker">Together forever</div><div class="letter-initials">A &amp; J</div><div class="letter-rule">✧</div><div class="letter-date">12 · 12 · 2026</div></div>
+      <div class="letter"><div class="letter-kicker">Together forever</div><div class="letter-initials">A <span class="amp">&amp;</span> J</div><div class="letter-rule">✧</div><div class="letter-date">12 · 12 · 2026</div></div>
       <div class="envelope-back"></div>
       <div class="envelope-flap"><svg class="lace-art" viewBox="0 0 430 296" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="laceDiamonds" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M9 0L18 9L9 18L0 9Z M9 4L14 9L9 14L4 9Z" stroke="#fff6ff" fill="none" stroke-width=".65" opacity=".68"/><circle cx="9" cy="9" r="1.3" fill="#fbf0f7" opacity=".65"/></pattern><pattern id="laceFlowers" width="43" height="43" patternUnits="userSpaceOnUse"><path d="M21 7Q32 19 21 33Q10 21 21 7Z M7 21Q19 10 33 21Q21 32 7 21Z" stroke="#f5dce8" stroke-width="1.1" fill="none" opacity=".85"/><circle cx="21" cy="21" r="4" stroke="#efd1df" fill="none"/></pattern></defs><rect width="430" height="296" fill="url(#laceDiamonds)" opacity=".64"/><rect width="430" height="296" fill="url(#laceFlowers)" opacity=".45"/><path d="M12 10H418V286H12Z M22 20H408V276H22Z" fill="none" stroke="#fce6f4" stroke-width="2" opacity=".75"/><path d="M35 32 Q215 72 395 32 M35 264 Q215 225 395 264" stroke="#f5d8e8" stroke-width="2" fill="none" opacity=".55"/></svg></div>
       <div class="envelope-pocket"><svg class="lace-art" viewBox="0 0 430 296" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="laceDiamonds2" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M9 0L18 9L9 18L0 9Z M9 4L14 9L9 14L4 9Z" stroke="#fff6ff" fill="none" stroke-width=".65" opacity=".68"/><circle cx="9" cy="9" r="1.3" fill="#fbf0f7" opacity=".65"/></pattern><pattern id="laceFlowers2" width="43" height="43" patternUnits="userSpaceOnUse"><path d="M21 7Q32 19 21 33Q10 21 21 7Z M7 21Q19 10 33 21Q21 32 7 21Z" stroke="#f5dce8" stroke-width="1.1" fill="none" opacity=".85"/><circle cx="21" cy="21" r="4" stroke="#efd1df" fill="none"/></pattern></defs><rect width="430" height="296" fill="url(#laceDiamonds2)" opacity=".64"/><rect width="430" height="296" fill="url(#laceFlowers2)" opacity=".45"/><path d="M12 10H418V286H12Z M22 20H408V276H22Z" fill="none" stroke="#fce6f4" stroke-width="2" opacity=".75"/><path d="M35 32 Q215 72 395 32 M35 264 Q215 225 395 264" stroke="#f5d8e8" stroke-width="2" fill="none" opacity=".55"/></svg></div>
       <div class="envelope-seal">AJ</div>
     </div>
-    <div class="envelope-heading">Akshit &amp; Janvi</div>
-    <p class="envelope-subtitle">A beautiful beginning awaits...</p>
+    <div class="envelope-heading">Akshit <span class="amp">&amp;</span> Janvi</div>
+    <p class="envelope-subtitle">A beautiful beginning awaits…</p>
     <button class="envelope-open-btn" id="envelopeOpenBtn" onclick="openEnvelope()">✧ Tap to Open ✧</button>
   </div>
 </section>
 <section class="page cover" id="p0" role="button" tabindex="0" aria-label="Tap left to go back or right to continue"><div class="page-inner"><span class="corner tl">❧</span><span class="corner tr">❧</span><span class="corner bl">❧</span><span class="corner br">❧</span>
 <img class="logo" alt="Gold floral pavilion with Akshit and Janvi initials" src="assets/logo.webp">
-<p class="eyebrow">Together with our families</p><p class="eyebrow">Joyfully invite you to celebrate</p>
-<h1 class="names">Akshit &amp; Janvi</h1><p class="divider">─ ✧ ─</p><p class="subline">Two hearts · One beautiful beginning</p>
+<p class="eyebrow">Together with our families,</p><p class="eyebrow">we joyfully invite you to celebrate</p>
+<h1 class="names">Akshit <span class="amp">&amp;</span> Janvi</h1><p class="divider">─ ✧ ─</p><p class="subline">Two hearts · One beautiful beginning</p>
 <p class="date">12 · 12 · 2026</p></div></section>
 <section class="page paper" id="p1"><div class="page-inner"><span class="corner tl">❧</span><span class="corner tr">❧</span><span class="corner bl">❧</span><span class="corner br">❧</span><div class="watermark" aria-hidden="true">AJ</div>
 <p class="eyebrow blessings">With the blessings of our elders</p><p class="divider">─ ✧ ─</p>
-<p class="subline">Together with their families</p><h2 class="names">Akshit &amp; Janvi</h2><p class="divider">─ ✧ ─</p>
+<p class="subline">Together with their families</p><h2 class="names">Akshit <span class="amp">&amp;</span> Janvi</h2><p class="divider">─ ✧ ─</p>
 <p class="copy">The Vaghani Parivar warmly invites you to join us as we celebrate a beautiful new beginning, filled with love, laughter and blessings.</p>
 <div class="save-and-photos"><p class="eyebrow">Save the dates · December 2026</p>
 <button class="page-action" onclick="openGallery()">♡ View Our Photos</button></div></div></section>
@@ -257,15 +275,15 @@
 <div class="event-card"><span class="event-date">FRIDAY · 11 DECEMBER 2026</span><h3>Mandap Muhurat</h3><p>2:00 PM onwards</p></div>
 <div class="event-card"><span class="event-date">FRIDAY · 11 DECEMBER 2026</span><h3>Sangeet Night</h3><p>6:00 PM onwards</p></div>
 <div class="event-card"><span class="event-date">SATURDAY · 12 DECEMBER 2026</span><h3>The Wedding</h3><p>4:30 PM onwards</p></div>
-<div class="venue-block"><span class="venue-label">ALL CELEBRATIONS AT</span><h3 class="venue-name">Lavish Green Party Plot · Surat</h3>
+<div class="venue-block"><span class="venue-label">ALL CELEBRATIONS AT</span><h3 class="venue-name">Lavish Green Party Plot</h3><span class="venue-label venue-city">SURAT</span>
 <a class="page-action" href="https://www.google.com/maps/search/?api=1&amp;query=Lavish+Green+Party+Plot+Surat" target="_blank" rel="noopener noreferrer">⌖ View Location on Maps</a></div>
-<p class="footer-text">THREE GATHERINGS · ONE BEAUTIFUL CELEBRATION</p></div></section>
+<p class="footer-text"><span class="nw">THREE GATHERINGS ·</span> <span class="nw">ONE BEAUTIFUL CELEBRATION</span></p></div></section>
 <section class="page venue-page" id="p3"><div class="page-inner"><span class="corner tl">❧</span><span class="corner tr">❧</span><span class="corner bl">❧</span><span class="corner br">❧</span><div class="watermark" aria-hidden="true">AJ</div>
 <p class="eyebrow">We look forward to celebrating with you</p>
 <div class="venue-blank-space" aria-hidden="true"></div>
 <p class="subline">With love,</p><h2>Vaghani Parivar</h2>
-<p class="divider">─ ✧ ─</p><h2 class="names">Akshit &amp; Janvi</h2><p class="date final-date">12 · 12 · 2026</p>
-<p class="divider">─ ✧ ─</p><p class="subline final-gratitude">Thank you for being part of our story</p></div></section>
+<p class="divider">─ ✧ ─</p><h2 class="names">Akshit <span class="amp">&amp;</span> Janvi</h2><p class="date final-date">12 · 12 · 2026</p>
+<p class="divider">─ ✧ ─</p><p class="subline final-gratitude">Thank you for being a part of our story</p></div></section>
 <div class="gallery-modal" id="galleryModal"><button class="gallery-close" onclick="closeGallery()">✕</button>
 <div class="gallery-content"><div class="kicker">A little glimpse of us</div><h2 style="font-family:'Great Vibes','Z003',cursive;font-size:48px;font-weight:400;margin:8px">Our Moments</h2>
 <img draggable="false" id="galleryPhoto" decoding="async" alt="Akshit and Janvi"><div class="photo-caption" id="photoCaption">A moment by the sea</div>
@@ -277,7 +295,7 @@
 // Start music with a gentle fade-in (iOS ignores volume and simply starts at full).
 function playMusic(){const a=document.getElementById('music');if(!a.paused)return;a.volume=0;a.play().then(()=>{const t0=performance.now();const step=now=>{const k=Math.min(1,(now-t0)/1800);a.volume=k*k;if(k<1&&!a.paused)requestAnimationFrame(step);};requestAnimationFrame(step);}).catch(()=>{a.volume=1;});}
 const pages=[...document.querySelectorAll('.page')];let current=0,photoIndex=0;
-const photos=['assets/photos/01.jpg','assets/photos/02.jpg','assets/photos/03.jpg','assets/photos/04.jpg','assets/photos/05.jpg','assets/photos/06.jpg','assets/photos/07.jpg','assets/photos/08.jpg','assets/photos/09.jpg','assets/photos/10.jpg','assets/photos/11.jpg'];const captions=['A moment by the sea','Little keepsakes of us','Chasing sunsets together','Under the golden light','Sunset by the sea','Captured in a soft golden moment','Pizza date, forever kind of love','Our little adventures','Through your eyes','Sunshine and smiles','Hand in hand, always'];
+const photos=['assets/photos/01.jpg','assets/photos/02.jpg','assets/photos/03.jpg','assets/photos/04.jpg','assets/photos/05.jpg','assets/photos/06.jpg','assets/photos/07.jpg','assets/photos/08.jpg','assets/photos/09.jpg','assets/photos/10.jpg','assets/photos/11.jpg'];const captions=['A moment by the sea','Little keepsakes of us','Chasing sunsets together','Under the golden light','Sunset by the sea','Captured in a soft golden moment','Pizza dates and a forever kind of love','Our little adventures','Through your eyes','Sunshine and smiles','Hand in hand, always'];
 function showPage(i){
 if(i===0){
   const scene=document.getElementById('envelopeScene');
