@@ -217,6 +217,9 @@ p,h1,h2,h3,.envelope-heading,.footer-text{text-wrap:balance}
 .venue-block .venue-city{font-size:clamp(11px,1.5vh,15px);letter-spacing:.18em;margin-top:-2px}
 .events-page .footer-text{max-width:90%;line-height:1.5}
 .nw{white-space:nowrap}
+/* Keep the big AJ watermark inside the card (glyphs are ~1.8x the font size wide) */
+.page .watermark{font-size:min(clamp(150px,26vh,290px),calc(var(--cardw) * .40))}
+.venue-page .watermark{font-size:min(clamp(180px,32vh,330px),calc(var(--cardw) * .40))}
 .envelope-heading{white-space:nowrap;font-size:min(clamp(47px,8vh,77px),16vw)}
 .venue-page .final-gratitude{max-width:88%}
 /* On phones the card fills the width: tuck the music button below the gold corner ornament */
@@ -294,11 +297,21 @@ p,h1,h2,h3,.envelope-heading,.footer-text{text-wrap:balance}
 <button id="nextBtn">NEXT PAGE →</button></div>
 <audio id="music" loop preload="auto" src="assets/music.mp3"></audio><script>
 // Start music with a gentle fade-in (iOS ignores volume and simply starts at full).
-function playMusic(){const a=document.getElementById('music');if(!a.paused)return;a.volume=0;a.play().then(()=>{const t0=performance.now();const step=now=>{const k=Math.min(1,(now-t0)/1800);a.volume=k*k;if(k<1&&!a.paused)requestAnimationFrame(step);};requestAnimationFrame(step);}).catch(()=>{a.volume=1;});}
+let musicFadeId=0;
+function fadeMusic(to,ms,done){const a=document.getElementById('music');const id=++musicFadeId,from=a.volume,t0=performance.now();
+  const step=now=>{if(id!==musicFadeId)return;const k=Math.min(1,(now-t0)/ms);a.volume=Math.max(0,Math.min(1,from+(to-from)*(to>from?k*k:1-(1-k)*(1-k))));if(k<1)requestAnimationFrame(step);else if(done)done();};
+  requestAnimationFrame(step);}
+let musicFadingOut=false;
+function playMusic(){const a=document.getElementById('music');if(!a.paused&&!musicFadingOut)return;
+  musicFadingOut=false;if(a.paused)a.volume=0;a.play().then(()=>fadeMusic(1,1800)).catch(()=>{a.volume=1;});}
+// Slowly fade the song out when the guest finishes and returns to the envelope screen.
+function fadeOutMusic(){const a=document.getElementById('music');if(a.paused||musicFadingOut)return;musicWanted=false;musicFadingOut=true;
+  fadeMusic(0,4000,()=>{musicFadingOut=false;a.pause();a.currentTime=0;a.volume=1;});}
 const pages=[...document.querySelectorAll('.page')];let current=0,photoIndex=0;
 const photos=['assets/photos/01.jpg','assets/photos/02.jpg','assets/photos/03.jpg','assets/photos/04.jpg','assets/photos/05.jpg','assets/photos/06.jpg','assets/photos/07.jpg','assets/photos/08.jpg','assets/photos/09.jpg','assets/photos/10.jpg','assets/photos/11.jpg'];const captions=['A moment by the sea','Little keepsakes of us','Chasing sunsets together','Under the golden light','Sunset by the sea','Captured in a soft golden moment','Pizza dates and a forever kind of love','Our little adventures','Through your eyes','Sunshine and smiles','Hand in hand, always'];
 function showPage(i){
 if(i===0){
+  fadeOutMusic();
   const scene=document.getElementById('envelopeScene');
   if(scene)scene.classList.remove('opened');
   const button=document.getElementById('envelopeOpenBtn');
