@@ -194,6 +194,13 @@
 .page{display:flex;animation:none;opacity:0;visibility:hidden;pointer-events:none;z-index:1;transition:opacity .4s ease-in,visibility 0s linear .4s}
 .page.active{opacity:1;visibility:visible;pointer-events:auto;z-index:2;transition:opacity .7s ease,visibility 0s}
 .page.active>.page-inner{animation:pageRise .8s cubic-bezier(.22,.8,.25,1) both}
+/* Card padding is relative to the card's own width (not the full screen width), so wide desktop screens
+   don't squeeze the text column. On phones the card is the full screen width, so nothing changes there. */
+:root{--cardw:min(100vw,calc(100vh * .5628));--cardw:min(100vw,calc(100dvh * .5628))}
+.page-inner{padding:calc(var(--cardw) * .07) calc(var(--cardw) * .08) calc(var(--cardw) * .15)}
+@media(max-height:690px){.page-inner{padding-top:calc(var(--cardw) * .04);padding-bottom:calc(var(--cardw) * .13)}}
+.events-page .page-inner{padding-top:calc(var(--cardw) * .07);padding-bottom:calc(var(--cardw) * .15)}
+.venue-page .page-inner{padding-top:calc(var(--cardw) * .08);padding-bottom:calc(var(--cardw) * .11)}
 @keyframes pageRise{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
 </style></head><body><div id="app"><button class="music" id="musicBtn" title="Toggle music" aria-label="Toggle music">♫</button>
 
